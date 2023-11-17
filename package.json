@@ -1,0 +1,11 @@
+{
+  "name": "cse341_project_2",
+  "version": "1.0.0",
+  "description": "CRUD MongoDB and express",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "acrisvall",
+  "license": "ISC"
+}
