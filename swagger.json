@@ -5,9 +5,9 @@
 		"description": "Description",
 		"version": "1.0.0"
 	},
-	"host": "https://project2-mqo5.onrender.com/",
+	"host": "https://project2-mqo5.onrender.com",
 	"basePath": "/",
-	"schemes": ["https"],
+	"schemes": ["http"],
 	"paths": {
 		"/": {
 			"get": {
