@@ -4,10 +4,12 @@ const productController = require("../controllers/products.controller");
 const { validationResult } = require("express-validator");
 const { createProdVal, updateProdVal } = require("../validator");
 
+const { isAuthenticated } = require("../middleware/authenticate");
+
 router.get("/", productController.getAllProducts);
 router.get("/:id", productController.getSingleProduct);
 
-router.post("/", createProdVal, async (req, res) => {
+router.post("/", isAuthenticated, createProdVal, async (req, res) => {
 	const result = validationResult(req);
 	if (result.isEmpty()) {
 		await productController.createProduct(req, res);
@@ -16,7 +18,7 @@ router.post("/", createProdVal, async (req, res) => {
 	}
 });
 
-router.put("/:id", updateProdVal, async (req, res) => {
+router.put("/:id", isAuthenticated, updateProdVal, async (req, res) => {
 	const result = validationResult(req);
 	if (result.isEmpty()) {
 		await productController.updateProduct(req, res);
@@ -25,6 +27,6 @@ router.put("/:id", updateProdVal, async (req, res) => {
 	}
 });
 
-router.delete("/:id", productController.deleteProduct);
+router.delete("/:id", isAuthenticated, productController.deleteProduct);
 
 module.exports = router;
